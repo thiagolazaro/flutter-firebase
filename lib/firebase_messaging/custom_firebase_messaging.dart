@@ -25,7 +25,9 @@ class CustomFirebaseMessaging {
     });
 
     FirebaseMessaging.onMessageOpenedApp.listen((message) {
-      navigatorKey.currentState?.pushNamed(message.data['goTO']);
+      if (message.data['goTO'] != null) {
+        navigatorKey.currentState?.pushNamed(message.data['goTO']);
+      }
     });
   }
 
